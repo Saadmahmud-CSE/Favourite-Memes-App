@@ -13,17 +13,17 @@
 }
 
 .star {
-  @apply relative w-[0] h-[0] border-l-[15px] border-l-transparent border-r-[15px] border-r-transparent border-b-[30px] border-slate-50 cursor-pointer;
+  @apply relative w-[0] h-[0] border-l-[15px] border-l-transparent border-r-[15px] border-r-transparent border-b-[30px] border-blue-100 cursor-pointer;
 }
 
 .star:before {
   content: "";
-  @apply absolute top-[-20px] left-[-15px] w-[0] h-[0] border-l-[15px] border-l-transparent border-r-[15px] border-r-transparent border-b-[30px] border-slate-50 transform rotate-[35deg];
+  @apply absolute top-[-20px] left-[-15px] w-[0] h-[0] border-l-[15px] border-l-transparent border-r-[15px] border-r-transparent border-b-[30px] border-blue-100 transform rotate-[35deg];
 }
 
 .star:after {
   content: "";
-  @apply absolute top-[-20px] left-[-15px] w-[0] h-[0] border-l-[15px] border-l-transparent border-r-[15px] border-r-transparent border-b-[30px] border-slate-50 transform rotate-[-35deg];
+  @apply absolute top-[-20px] left-[-15px] w-[0] h-[0] border-l-[15px] border-l-transparent border-r-[15px] border-r-transparent border-b-[30px] border-blue-100 transform rotate-[-35deg];
 }
 
 

@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en" data-theme="cupcake">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <title>Favourite Memes App</title>
+  </head>
+  <body id="body">
+    <div class="flex">
+        <!--left side-->
+        <div id="left" class="max-md:hidden">
+          <!--upper left-->
+          <div id="leftUpper" class="relative h-20 w-[350px] text-center flex flex-col justify-center">
+            <p class="text-xl font-bold text-slate-400">Femes | Favourite Memes</p>         
+          </div>
+          <!--lower left-->
+          <div id="leftlower" class="h-[100vh] w-[350px] overflow-auto">
+            <div id="savedMemeCollection" class="flex flex-col m-7 font-semibold items-start gap-5">
+            </div>
+          </div>
+        </div>
+
+        <!--right side-->
+        <div id="right" class="flex-1">
+          <!--upper part ir ride side-->
+          <div id="rightUpper" class="h-20 flex justify-between">
+              <!--leftmost-->
+              <div class="flex">
+                <div class="relative">
+                  <input id="searchMemes" type="search" required minlength="2" maxlength="100" class="h-10 w-[400px] max-lg:w-[250px] bg-slate-200 rounded-md m-4 text-lg placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-slate-600" placeholder="           Search memes...">
+                  <svg id="searchIcon" class="absolute h-[17px] top-7" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
+                    <path d="M 21 3 C 11.622998 3 4 10.623005 4 20 C 4 29.376995 11.622998 37 21 37 C 24.712383 37 28.139151 35.791079 30.9375 33.765625 L 44.085938 46.914062 L 46.914062 44.085938 L 33.886719 31.058594 C 36.443536 28.083 38 24.223631 38 20 C 38 10.623005 30.377002 3 21 3 z M 21 5 C 29.296122 5 36 11.703883 36 20 C 36 28.296117 29.296122 35 21 35 C 12.703878 35 6 28.296117 6 20 C 6 11.703883 12.703878 5 21 5 z"></path>
+                    </svg>
+                  <p id="warningMsg" class="hidden absolute bottom-[2px] left-4 text-red-500 text-sm"></p>
+                </div>
+              </div>
+              <!--rightmost-->
+              <div class="flex">
+                <!--theme-->
+                <div class="dropdown dropdown-bottom-custom dropdown-left pr-6 pt-4">
+                  <div tabindex="0" role="button" class="btn-custom relative flex justify-center">
+                    <p class="max-sm:hidden">Themes</p>
+                    <img class="rounded-lg absolute left-3 top-2 max-sm:h-5 max-sm:w-10 max-sm:left-0 max-sm:top-0" height="25px" width="20px" src="https://www.svgrepo.com/show/74662/color-palette.svg" alt="">
+                    <svg class="absolute right-2 max-sm:hidden" width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.7071 14.7071C12.3166 15.0976 11.6834 15.0976 11.2929 14.7071L6.29289 9.70711C5.90237 9.31658 5.90237 8.68342 6.29289 8.29289C6.68342 7.90237 7.31658 7.90237 7.70711 8.29289L12 12.5858L16.2929 8.29289C16.6834 7.90237 17.3166 7.90237 17.7071 8.29289C18.0976 8.68342 18.0976 9.31658 17.7071 9.70711L12.7071 14.7071Z" fill="#000000"/></svg>
+                  </div>
+                  <ul tabindex="0" class="dropdown-content menu bg-blue-50 text-slate-800 font-semibold rounded-xl w-32 p-2 shadow z-10">
+                    <li><button id="default">Default</button></li>
+                    <li><button id="dark">Dark</button></li>
+                    <li><button id="light">Light</button></li>
+                    <li><button id="synthwave">Synthwave</button></li>
+                    <li><button id="retro">Retro</button></li>
+                    <li><button id="cyberpunk">Cyberpunk</button></li>
+                    <li><button id="aqua">Aqua</button></li>
+                    <li><button id="forest">Forest</button></li>
+                    <li><button id="black">Black</button></li>
+                    <li><button id="coffee">Coffee</button></li>
+                    <li><button id="dim">Dim</button></li>
+                    <li><button id="luxury">Luxury</button></li>
+                  </ul>
+                </div>
+                <!--side drawer-->
+                <div class="flex-none md:hidden z-10">
+                  <div class="drawer drawer-end pt-2">
+                    <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+                    <div class="drawer-content">
+                      <!-- Page content here -->
+                      <label for="my-drawer" class="btn btn-square btn-ghost">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-6 h-6 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                      </label>
+                    </div> 
+                    <div class="drawer-side">
+                      <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+                      <ul id="savedMemeCollectionInSideBar" class="flex items-start menu p-4 gap-3 w-80 min-h-full bg--50 text-black font-bold">
+                        <div class="h-16 w-72 border-b-2 border-slate-300 text-center flex flex-col justify-center">
+                          <p class="text-xl font-bold text-blue-400">Femes | Favourite Memes </p>
+                        </div>
+                        <!-- Sidebar content here -->
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <!--lower part ir ride side-->
+          <div id="rightlower" class="h-[100vh] overflow-auto text-center p-4">  
+            <!--modal-->       
+            <div id="apiElements" class="flex flex-col items-center gap-3">
+              <p class="font-semibold text-slate-600">You need an API key to get the memes feed.</p>
+              <button id="setApiId" class="h-12 w-40 rounded-full bg-blue-400 font-semibold text-black" onclick="my_modal_3.showModal()">Set API Key</button>
+              <dialog id="my_modal_3" class="modal">
+                <div class="modal-box">
+                  <form method="dialog">
+                    <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                  </form>
+                  <h3 class="text-lg font-bold">Set your API key!</h3>
+                  <p class="py-4 text-start text-[12px]">Please set your own API key below:</p>
+                  <div class="flex flex-col gap-4">
+                    <input type="text" name="" id="apikey" class="h-10 w-full rounded-full focus:outline-none focus:outline-blue-500 focus:outline-ring-6 border-2">
+                    <button id="saveApiId" class="h-10 w-full bg-blue-500 rounded-full font-semibold text-black">Save API key in Browser</button>
+                  </div>
+                  <p id="badRes" class="hidden pt-2 text-red-500 text-[11px]"></p>
+                </div>
+              </dialog>
+            </div>
+            <!--feed-->
+            <div id="memeFeed" class="hidden">
+              <p class="text-xl font-semibold text-left"> Memes Feed Here ... </p>
+              <br><br>
+              <div id="memeFeedImg" class="flex flex-wrap items-center justify-center gap-5">
+                  <button id="favouriteMemeSaveModalActiveBtn" class="btn hidden" onclick="my_modal_5.showModal()">open modal</button>
+                  <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+                    <div class="modal-box">
+                      <p class="py-4 font-semibold">Give a name to your Favourite Meme!</p>
+                      
+                      <div class="modal-action">
+                        <form method="dialog">
+                          <!-- if there is a button in form, it will close the modal -->
+                          <div>
+                            <input type="text" id="favouriteMemeSaveInput" class="h-12 w-80 rounded-lg border-2 border-blue-600 bg-white text-black">
+                            <button id="favouriteMemeSaveBtn" class=" bg-blue-600 text-white h-12 w-28 rounded-lg">Save!</button>
+                          </div>
+                          <button id="favouriteMemeSaveModalCloseBtn" class="btn hidden">Close</button>
+                        </form>
+                      </div>
+                    </div>
+                  </dialog>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
